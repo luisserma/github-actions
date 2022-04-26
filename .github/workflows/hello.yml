@@ -3,37 +3,12 @@ name: Mi First Action
 on: push
 
 jobs:
-    job1:
+    build:
         name: Ubuntu Job
         runs-on: ubuntu-latest
         steps:
             - name: Step One
               uses: actions/checkout@v2
-            - name: Step Two
-              run: env | sort
-    job2:
-        name: Windows Job
-        runs-on: windows-latest
-        steps:
-            - name: Step One
-              uses: actions/checkout@v2
-            - name: Step Two
-              run: "Get-ChildItem Env: | Sort-Object Name"
-    job3:
-        name: MacOs Job
-        runs-on: macos-latest
-        steps:
-            - name: Step One
-              uses: actions/checkout@v2
-            - name: Step Two
-              run: env | sort
-    job4:
-        name: MacOs Job depends
-        runs-on: macos-latest
-        needs: [job1, job2, job3]
-        steps:
-            - name: Step One
-              uses: actions/checkout@v2
-            - name: Step Two
-              run: env | sort
+            - name: Python Syntax Checker
+              uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
     
